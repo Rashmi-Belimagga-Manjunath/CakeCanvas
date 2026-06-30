@@ -364,13 +364,13 @@
   var phaseImages = {
     greeting: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&q=80',
     occasion: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80',
-    guests: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400&q=80',
-    size: 'https://images.unsplash.com/photo-1486427944544-d2c246c4d3b1?w=400&q=80',
-    hasPhoto: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80',
-    dietary: 'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80',
+    guests: 'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80',
+    size: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80',
+    hasPhoto: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&q=80',
+    dietary: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80',
     flavour: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80',
-    delivery: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&q=80',
-    budget: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80'
+    delivery: 'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80',
+    budget: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80'
   };
 
   function getPhaseImage(phase) {
@@ -646,9 +646,32 @@
     }
   });
 
+  // ─── Scroll reveal animation ─────────────────────────────────────────────
+
+  function initReveal() {
+    if (!window.IntersectionObserver) {
+      document.querySelectorAll('.product-card, .testimonial-card, .about-image, .about-text, .contact-item').forEach(function (el) {
+        el.classList.add('revealed');
+      });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.product-card, .testimonial-card, .about-image, .about-text, .contact-item').forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
   // ─── Initialisation ──────────────────────────────────────────────────────
 
   function init() {
+    initReveal();
     if ('serviceWorker' in navigator) {
       // Cache for offline support (if service worker registered)
     }
