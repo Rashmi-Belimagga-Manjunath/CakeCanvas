@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="CakeCanvas — Custom celebration cakes, handcrafted in London. Describe your vision, and our designers will bring it to life.">
+  <meta name="theme-color" content="#5D4037">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>CakeCanvas — Custom Celebration Cakes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="CakeCanvas home">
+        <span class="logo-icon" aria-hidden="true">🎂</span>
+        CakeCanvas
+      </a>
+      <div class="header-actions">
+        <button id="themeToggle" class="dark-toggle" aria-label="Switch to dark mode" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="btn-primary" id="headerChatBtn" aria-label="Open chat">
+          <span aria-hidden="true">💬</span>
+          <span class="btn-label">Chat with us</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ MAIN ═══════════════ -->
+  <main id="main">
+
+    <!-- ── HERO ── -->
+    <section class="hero" aria-label="Hero banner">
+      <h1>Your dream cake,<br><span>one conversation away</span></h1>
+      <p>Describe your vision, share a photo, and our designers will bring it to life. Handcrafted celebration cakes in London — made to order, made for you.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" id="heroChatBtn">
+          <span aria-hidden="true">💬</span>
+          <span>Start your order</span>
+        </button>
+        <a href="#features" class="btn-secondary">
+          How it works <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">2,400+</span>
+          <span class="stat-label">Cakes delivered</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4.9★</span>
+          <span class="stat-label">Average rating</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">25 mi</span>
+          <span class="stat-label">Delivery radius</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image" aria-hidden="true" role="img" aria-label="Decorative cake illustration">
+            🎂✨
+          </div>
+          <div class="about-text">
+            <span class="section-label">About</span>
+            <h2 id="about-heading">Handcrafted with love,<br>designed for your moment</h2>
+            <p>CakeCanvas is an online bakery based in London, specialising in fully customised celebration cakes. Every cake is designed and baked from scratch by our team of skilled designers and bakers — using premium ingredients like real butter, Belgian chocolate, and Madagascar vanilla.</p>
+            <p>Whether it's a whimsical birthday cake, an elegant wedding centrepiece, or a corporate showstopper, we treat every order as a unique work of art.</p>
+            <ul>
+              <li>Custom designs for any occasion</li>
+              <li>Eggless, gluten-free, vegan &amp; nut-free options</li>
+              <li>Free 25-mile delivery from our London bakery</li>
+              <li>AI chatbot for instant guidance — no waiting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ── -->
+    <section class="features" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="features-header">
+          <span class="section-label">How it works</span>
+          <h2 id="features-heading">From inspiration to celebration</h2>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">💬</span>
+            <h3>Chat with our AI assistant</h3>
+            <p>Tell us your occasion, share an inspiration photo, and answer a few quick questions. Our chatbot guides you step by step — no forms, no waiting.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">📸</span>
+            <h3>Instant photo feedback</h3>
+            <p>Upload a photo and our tool checks the quality instantly — blur, lighting, resolution. If it's not quite right, we'll tell you exactly how to improve it.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">👩‍🍳</span>
+            <h3>Designer reviews your brief</h3>
+            <p>Your requirements, photo, and preferences are compiled into a structured brief. A designer reviews it within 24 hours and sends you a personalised quote.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🎉</span>
+            <h3>Delivery or collection</h3>
+            <p>We deliver within 25 miles of London, with white-glove setup included. Prefer to collect? Book an appointment at our bakery studio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>CakeCanvas</h4>
+          <p>Handcrafted custom cakes in London. Every order made to order, made for you.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@cakecanvas.com<br>+44 20 7946 0958</p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon–Fri: 9 AM – 6 PM<br>Sat: 10 AM – 4 PM<br>Sun: Closed</p>
+        </div>
+        <div class="footer-col">
+          <h4>Follow</h4>
+          <p>Instagram: @cakecanvas<br>Pinterest: cakecanvas</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 CakeCanvas. All rights reserved. Made with love in London.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ CHATBOT LAUNCHER ═══════════════ -->
+  <button id="chatLauncher" class="chat-launcher" aria-label="Open chat" aria-expanded="false" type="button">
+    <span class="chat-icon" aria-hidden="true">💬</span>
+    <span class="close-icon" aria-hidden="true">✕</span>
+  </button>
+
+  <!-- ═══════════════ CHATBOT PANEL ═══════════════ -->
+  <aside id="chatPanel" class="chat-panel" role="dialog" aria-label="CakeCanvas chatbot" aria-hidden="true" aria-modal="true">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar" aria-hidden="true">CC</div>
+        <div>
+          <div class="chat-title">CakeCanvas</div>
+          <div class="chat-status" id="chatStatus"><span class="sr-only">Status: </span>Online</div>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button id="chatClearBtn" class="chat-header-btn" aria-label="Clear chat history" title="New conversation" type="button">
+          <span aria-hidden="true">✎</span>
+        </button>
+        <button id="chatCloseBtn" class="chat-header-btn" aria-label="Close chat" title="Close" type="button">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-atomic="false" aria-relevant="additions">
+      <!-- Messages rendered by JS -->
+    </div>
+
+    <div class="suggested-area" id="suggestedArea">
+      <div class="suggested-label">Quick questions</div>
+      <div class="suggested-list" id="suggestedList">
+        <button class="suggested-btn" type="button" data-question="How much does a custom cake cost?">💵 Pricing</button>
+        <button class="suggested-btn" type="button" data-question="What flavours do you offer?">🧁 Flavours</button>
+        <button class="suggested-btn" type="button" data-question="Do you offer eggless cakes?">🥚 Eggless?</button>
+        <button class="suggested-btn" type="button" data-question="Do you deliver?">🚚 Delivery</button>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="chat-input-wrapper">
+        <label for="chatInput" class="sr-only">Type your message</label>
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type your message…" autocomplete="off" enterkeyhint="send" aria-required="false">
+        <button id="chatSendBtn" class="chat-send-btn" aria-label="Send message" type="button">
+          <span aria-hidden="true">➤</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script src="knowledge.js"></script>
+  <script src="priceCalculator.js"></script>
+  <script src="recommendationEngine.js"></script>
+  <script src="imageAdvisor.js"></script>
+  <script src="conversationEngine.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
