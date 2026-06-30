@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="CakeCanvas — Handcrafted celebration cakes in London. Share your vision, and our designers will bring it to life.">
   <meta name="theme-color" content="#1a0f0a">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <title>CakeCanvas — Artisan Celebration Cakes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +29,7 @@
           <span>💬</span>
           <span>Start Order</span>
         </button>
-        <button id="themeToggle" class="dark-toggle" aria-label="Switch theme">
-          <span id="themeIcon" aria-hidden="true">🌙</span>
-        </button>
+
       </nav>
     </div>
   </header>
@@ -88,7 +86,7 @@
           <div class="hero-visual-frame">
             <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=800&q=80" alt="" class="hero-visual-img" loading="eager">
             <div class="hero-visual-accent"></div>
-            <div class="hero-visal-badge">
+            <div class="hero-visual-badge">
               <span>🍰</span>
               <span>Custom Design</span>
             </div>
@@ -160,7 +158,7 @@
           </div>
           <div class="feature-card">
             <div class="fc-img">
-              <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a5e?w=600&q=80" alt="" aria-hidden="true" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1486427944544-d2c246c4d3b1?w=600&q=80" alt="" aria-hidden="true" loading="lazy">
             </div>
             <div class="fc-body">
               <span class="fc-step">Step 2</span>
@@ -192,24 +190,55 @@
       </div>
     </section>
 
-    <!-- ── TESTIMONIAL ── -->
-    <section class="testimonial" aria-label="Customer testimonial">
+    <!-- ── TESTIMONIALS ── -->
+    <section class="testimonials" aria-label="Customer testimonials">
       <div class="container">
-        <div class="testimonial-card">
-          <div class="testimonial-bg">
-            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1200&q=80" alt="" aria-hidden="true" loading="lazy">
-            <div class="testimonial-overlay"></div>
-          </div>
-          <div class="testimonial-content">
-            <span class="testimonial-quote">"</span>
-            <blockquote>
-              Absolutely stunning! The cake was even more beautiful than the photo I sent. Every single guest asked where we got it. Worth every penny.
-            </blockquote>
-            <div class="testimonial-author">
-              <div class="ta-avatar">🎂</div>
+        <div class="section-header">
+          <span class="section-label">Testimonials</span>
+          <h2>What our customers <span class="pink-text">say</span></h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <span class="t-quote">"</span>
+            <blockquote>Absolutely stunning! The cake was even more beautiful than the photo I sent. Every single guest asked where we got it.</blockquote>
+            <div class="t-author">
+              <div class="t-avatar">S</div>
               <div>
                 <cite>Sarah L.</cite>
                 <span>Wedding cake, May 2026</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <span class="t-quote">"</span>
+            <blockquote>Best birthday cake I've ever had! The red velvet was incredible and the design was spot on. Will definitely order again.</blockquote>
+            <div class="t-author">
+              <div class="t-avatar">J</div>
+              <div>
+                <cite>James R.</cite>
+                <span>Birthday cake, March 2026</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <span class="t-quote">"</span>
+            <blockquote>They accommodated our gluten-free and nut-free needs without compromising on taste or design. Simply impeccable service.</blockquote>
+            <div class="t-author">
+              <div class="t-avatar">P</div>
+              <div>
+                <cite>Priya K.</cite>
+                <span>Anniversary cake, April 2026</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <span class="t-quote">"</span>
+            <blockquote>The corporate cupcakes were a hit at our launch event. Beautiful presentation and everyone raved about the flavours.</blockquote>
+            <div class="t-author">
+              <div class="t-avatar">M</div>
+              <div>
+                <cite>Marcus T.</cite>
+                <span>Corporate event, Feb 2026</span>
               </div>
             </div>
           </div>
@@ -323,6 +352,7 @@
   <script src="recommendationEngine.js"></script>
   <script src="imageAdvisor.js"></script>
   <script src="conversationEngine.js"></script>
+  <script src="geminiBridge.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -20,8 +20,6 @@
   var chatClearBtn = document.getElementById('chatClearBtn');
   var chatStatus = document.getElementById('chatStatus');
   var suggestedList = document.getElementById('suggestedList');
-  var themeToggle = document.getElementById('themeToggle');
-  var themeIcon = document.getElementById('themeIcon');
   var headerChatBtn = document.getElementById('headerChatBtn');
   var heroChatBtn = document.getElementById('heroChatBtn');
   var footerChatBtn = document.getElementById('footerChatBtn');
@@ -42,32 +40,6 @@
       chatPanel.classList.remove('fullscreen');
     }
   });
-
-  // ─── Theme ────────────────────────────────────────────────────────────────
-
-  function loadTheme() {
-    try { return localStorage.getItem('cakecanvas-theme') || 'light'; }
-    catch (e) { return 'light'; }
-  }
-
-  function saveTheme(theme) {
-    try { localStorage.setItem('cakecanvas-theme', theme); }
-    catch (e) { /* noop */ }
-  }
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    var isDark = theme === 'dark';
-    themeIcon.textContent = isDark ? '☀️' : '🌙';
-    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', isDark ? '#120E0A' : '#5D4037');
-  }
-
-  function toggleTheme() {
-    var current = document.documentElement.getAttribute('data-theme') || 'light';
-    applyTheme(current === 'dark' ? 'light' : 'dark');
-    saveTheme(current === 'dark' ? 'light' : 'dark');
-  }
 
   // ─── Chat History (localStorage) ─────────────────────────────────────────
 
@@ -228,16 +200,17 @@
         resultEl.textContent = analysis.message;
         resultEl.className = 'quality-result ' + (analysis.pass ? 'pass' : 'fail');
 
-        ConversationEngine.handleImageResult(analysis);
+        GeminiBridge.handleImageResult(analysis);
 
         if (analysis.pass) {
           addBotMessage('✅ ' + analysis.message);
 
-          var convState = ConversationEngine.getState();
+          var convState = GeminiBridge.getState();
           if (convState.phase === 'hasPhoto' || convState.phase === 'greeting') {
             setTimeout(function () {
-              var response = ConversationEngine.processInput('yes');
-              processResponse(response);
+              GeminiBridge.processInput('yes').then(function (response) {
+                processResponse(response);
+              });
             }, 500);
           }
         } else {
@@ -255,9 +228,10 @@
 
           var skipBtn = createOptionButton({ label: 'Skip — describe instead', value: 'skip' });
           skipBtn.addEventListener('click', function () {
-            ConversationEngine.getState().data.hasPhoto = false;
-            var response = ConversationEngine.processInput('no');
-            processResponse(response);
+            GeminiBridge.getState().data.hasPhoto = false;
+            GeminiBridge.processInput('no').then(function (response) {
+              processResponse(response);
+            });
           });
           retryContainer.appendChild(skipBtn);
 
@@ -320,7 +294,7 @@
     var el = renderMessage(msg);
     chatMessages.appendChild(el);
     scrollToBottom();
-    saveChatHistory(messageStore, ConversationEngine.getState());
+    saveChatHistory(messageStore, GeminiBridge.getState());
   }
 
   function addUserMessage(text) {
@@ -360,15 +334,15 @@
     var delay = 300 + Math.random() * 700;
 
     setTimeout(function () {
-      removeTypingIndicator();
+      GeminiBridge.processInput(text).then(function (response) {
+        removeTypingIndicator();
+        processResponse(response);
 
-      var response = ConversationEngine.processInput(text);
-      processResponse(response);
-
-      isProcessing = false;
-      chatInput.disabled = false;
-      chatSendBtn.disabled = false;
-      chatInput.focus();
+        isProcessing = false;
+        chatInput.disabled = false;
+        chatSendBtn.disabled = false;
+        chatInput.focus();
+      });
     }, delay);
   }
 
@@ -424,7 +398,7 @@
         if (response.reference) {
           try {
             localStorage.setItem('cakecanvas-submission-' + response.reference, JSON.stringify({
-              data: ConversationEngine.getFormData(),
+              data: GeminiBridge.getFormData(),
               timestamp: new Date().toISOString()
             }));
           } catch (e) { /* noop */ }
@@ -548,14 +522,14 @@
     var saved = loadChatHistory();
 
     if (saved && saved.messages && saved.messages.length > 0) {
-      ConversationEngine.setState(saved.state);
+      GeminiBridge.setState(saved.state);
       messageStore = saved.messages;
       messageStore.forEach(function (msg) {
         chatMessages.appendChild(renderMessage(msg));
       });
       scrollToBottom();
 
-      var state = ConversationEngine.getState();
+      var state = GeminiBridge.getState();
       if (state.escalated) {
         showEscalationBanner();
         chatStatus.textContent = 'With a designer';
@@ -565,13 +539,14 @@
         addBotMessage('Welcome back! We were discussing your ' + (state.data.occasion || 'cake') + '. Ready to continue?');
       }
     } else {
-      var greeting = ConversationEngine.processInput('');
-      addBotMessage(greeting.message, greeting.options);
+      GeminiBridge.processInput('').then(function (greeting) {
+        addBotMessage(greeting.message, greeting.options);
+      });
     }
   }
 
   function resetChat() {
-    ConversationEngine.reset();
+    GeminiBridge.reset();
     messageStore = [];
     chatMessages.innerHTML = '';
     clearChatHistory();
@@ -582,9 +557,10 @@
     chatStatus.innerHTML = '<span class="sr-only">Status: </span>Online';
     chatStatus.style.removeProperty('--status-color');
 
-    var greeting = ConversationEngine.processInput('');
-    addBotMessage(greeting.message, greeting.options);
-    chatInput.focus();
+    GeminiBridge.processInput('').then(function (greeting) {
+      addBotMessage(greeting.message, greeting.options);
+      chatInput.focus();
+    });
   }
 
   // ─── Event Binding ───────────────────────────────────────────────────────
@@ -619,8 +595,6 @@
   heroChatBtn.addEventListener('click', openChat);
   footerChatBtn.addEventListener('click', openChat);
 
-  themeToggle.addEventListener('click', toggleTheme);
-
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && isOpen) {
       closeChat();
@@ -630,10 +604,6 @@
   // ─── Initialisation ──────────────────────────────────────────────────────
 
   function init() {
-    var savedTheme = loadTheme();
-    applyTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
     if ('serviceWorker' in navigator) {
       // Cache for offline support (if service worker registered)
     }
