@@ -74,6 +74,17 @@
     el.className = 'message ' + msg.role;
     el.setAttribute('role', 'listitem');
 
+    if (msg.image) {
+      var imgWrap = document.createElement('div');
+      imgWrap.className = 'message-img';
+      var imgEl = document.createElement('img');
+      imgEl.src = msg.image;
+      imgEl.alt = msg.imageAlt || '';
+      imgEl.loading = 'lazy';
+      imgWrap.appendChild(imgEl);
+      el.appendChild(imgWrap);
+    }
+
     var bubble = document.createElement('div');
     bubble.className = 'message-bubble';
 
@@ -288,7 +299,11 @@
       options: options || null
     };
 
-    if (extra && extra.showImageUpload) msg.showImageUpload = true;
+    if (extra) {
+      if (extra.showImageUpload) msg.showImageUpload = true;
+      if (extra.image) msg.image = extra.image;
+      if (extra.imageAlt) msg.imageAlt = extra.imageAlt;
+    }
 
     messageStore.push(msg);
     var el = renderMessage(msg);
@@ -346,30 +361,51 @@
     }, delay);
   }
 
+  var phaseImages = {
+    greeting: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&q=80',
+    occasion: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80',
+    guests: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400&q=80',
+    size: 'https://images.unsplash.com/photo-1486427944544-d2c246c4d3b1?w=400&q=80',
+    hasPhoto: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80',
+    dietary: 'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80',
+    flavour: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80',
+    delivery: 'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&q=80',
+    budget: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80'
+  };
+
+  function getPhaseImage(phase) {
+    return phaseImages[phase] || null;
+  }
+
   function processResponse(response) {
     if (!response) return;
 
+    var extra = {};
+    var phaseImg = getPhaseImage(response.phase);
+    if (phaseImg) {
+      extra.image = phaseImg;
+      extra.imageAlt = response.phase ? response.phase + ' cake' : 'Cake';
+    }
+
+    if (response.type === 'phase_change' && response.phase === 'hasPhoto' && response.data && response.data.hasPhoto !== false) {
+      extra.showImageUpload = true;
+    }
+
     switch (response.type) {
       case 'greeting':
-        addBotMessage(response.message, response.options);
+        addBotMessage(response.message, response.options, extra);
         break;
 
       case 'phase_change':
-        addBotMessage(
-          response.message,
-          response.options,
-          response.phase === 'hasPhoto' && response.data && response.data.hasPhoto !== false
-            ? { showImageUpload: true }
-            : undefined
-        );
+        addBotMessage(response.message, response.options, extra);
         break;
 
       case 'faq_answer':
-        addBotMessage(response.message);
+        addBotMessage(response.message, null, extra);
         break;
 
       case 'fallback':
-        addBotMessage(response.message);
+        addBotMessage(response.message, null, extra);
         if (response.action === 'prompt_occasion') {
           setTimeout(function () {
             addBotMessage('What\'s the occasion? 🎂', [
@@ -387,14 +423,14 @@
         break;
 
       case 'escalate':
-        addBotMessage(response.message);
+        addBotMessage(response.message, null, extra);
         chatStatus.textContent = 'With a designer';
         chatStatus.style.setProperty('--status-color', '#FFA726');
         showEscalationBanner();
         break;
 
       case 'submitted':
-        addBotMessage(response.message);
+        addBotMessage(response.message, null, extra);
         if (response.reference) {
           try {
             localStorage.setItem('cakecanvas-submission-' + response.reference, JSON.stringify({
@@ -406,11 +442,11 @@
         break;
 
       case 'error':
-        addBotMessage(response.message, response.options);
+        addBotMessage(response.message, response.options, extra);
         break;
 
       default:
-        addBotMessage(response.message || 'Thanks! Is there anything else I can help with?');
+        addBotMessage(response.message || 'Thanks! Is there anything else I can help with?', null, extra);
     }
   }
 
