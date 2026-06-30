@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="CakeCanvas — Custom celebration cakes, handcrafted in London. Describe your vision, and our designers will bring it to life.">
-  <meta name="theme-color" content="#5D4037">
+  <meta name="description" content="CakeCanvas — Handcrafted celebration cakes in London. Describe your vision, and our designers will bring it to life.">
+  <meta name="theme-color" content="#3E2723">
   <meta name="color-scheme" content="light dark">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <title>CakeCanvas — Custom Celebration Cakes</title>
+  <title>CakeCanvas — Artisan Celebration Cakes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
 </head>
@@ -22,71 +21,158 @@
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="#" class="logo" aria-label="CakeCanvas home">
-        <span class="logo-icon" aria-hidden="true">🎂</span>
-        CakeCanvas
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="4" y="16" width="24" height="12" rx="2" fill="#5D4037"/>
+            <rect x="8" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+            <rect x="14" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+            <rect x="20" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+            <path d="M16 4C16 4 12 10 16 12C20 10 16 4 16 4Z" fill="#F8D7DA"/>
+            <path d="M12 6C12 6 9 10 12 11.5C15 10 12 6 12 6Z" fill="#F4C2C5" opacity="0.6"/>
+            <path d="M20 6C20 6 17 10 20 11.5C23 10 20 6 20 6Z" fill="#F4C2C5" opacity="0.6"/>
+          </svg>
+        </span>
+        <span class="logo-text">CakeCanvas</span>
       </a>
-      <div class="header-actions">
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#features" class="nav-link">How It Works</a>
+        <button class="btn-primary" id="headerChatBtn" aria-label="Start your order">
+          <span aria-hidden="true">💬</span>
+          <span class="btn-label">Start Your Order</span>
+        </button>
         <button id="themeToggle" class="dark-toggle" aria-label="Switch to dark mode" title="Toggle theme">
           <span id="themeIcon" aria-hidden="true">🌙</span>
         </button>
-        <button class="btn-primary" id="headerChatBtn" aria-label="Open chat">
-          <span aria-hidden="true">💬</span>
-          <span class="btn-label">Chat with us</span>
-        </button>
-      </div>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" type="button">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <!-- ═══════════════ HERO BANNER ═══════════════ -->
+  <section class="hero" aria-label="Hero banner">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="hero-orbe" aria-hidden="true"></div>
+    <div class="hero-orbe hero-orbe--2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">London's Finest Custom Bakery</span>
+        <h1>
+          <span class="hero-line hero-line--small">Handcrafted&nbsp;for</span>
+          <span class="hero-line hero-line--large">Life's Sweetest&nbsp;<span class="gold-text">Moments</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          Describe your vision, share a photo, and our artisan designers will craft a cake as extraordinary as your celebration. Made to order in London.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary btn-primary--gold" id="heroChatBtn">
+            <span aria-hidden="true">💬</span>
+            <span>Start Your Order</span>
+          </button>
+          <a href="#features" class="btn-outline">
+            Explore <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-cake">
+          <div class="cake-tier cake-tier--bottom"></div>
+          <div class="cake-tier cake-tier--middle"></div>
+          <div class="cake-tier cake-tier--top"></div>
+          <div class="cake-candle"></div>
+          <div class="cake-flame"></div>
+          <div class="cake-drip"></div>
+          <div class="cake-rose cake-rose--1"></div>
+          <div class="cake-rose cake-rose--2"></div>
+          <div class="cake-rose cake-rose--3"></div>
+          <div class="cake-leaf cake-leaf--1"></div>
+          <div class="cake-leaf cake-leaf--2"></div>
+        </div>
+        <div class="hero-sparkle hero-sparkle--1"></div>
+        <div class="hero-sparkle hero-sparkle--2"></div>
+        <div class="hero-sparkle hero-sparkle--3"></div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-text">Scroll</span>
+      <span class="hero-scroll-line"></span>
+    </div>
+  </section>
 
   <!-- ═══════════════ MAIN ═══════════════ -->
   <main id="main">
 
-    <!-- ── HERO ── -->
-    <section class="hero" aria-label="Hero banner">
-      <h1>Your dream cake,<br><span>one conversation away</span></h1>
-      <p>Describe your vision, share a photo, and our designers will bring it to life. Handcrafted celebration cakes in London — made to order, made for you.</p>
-      <div class="hero-buttons">
-        <button class="btn-primary" id="heroChatBtn">
-          <span aria-hidden="true">💬</span>
-          <span>Start your order</span>
-        </button>
-        <a href="#features" class="btn-secondary">
-          How it works <span aria-hidden="true">→</span>
-        </a>
+    <!-- ── ABOUT ── -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="divider" aria-hidden="true">
+        <span class="divider-icon">✦</span>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">2,400+</span>
-          <span class="stat-label">Cakes delivered</span>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">About</span>
+          <h2 id="about-heading">Where tradition meets&nbsp;<span class="gold-text">imagination</span></h2>
         </div>
-        <div class="stat">
-          <span class="stat-number">4.9★</span>
-          <span class="stat-label">Average rating</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">25 mi</span>
-          <span class="stat-label">Delivery radius</span>
+        <div class="about-grid">
+          <div class="about-visual" aria-hidden="true">
+            <div class="about-visual-frame">
+              <div class="about-visual-inner">
+                <span class="about-emoji">🍰</span>
+                <span class="about-emoji about-emoji--2">✨</span>
+                <span class="about-emoji about-emoji--3">🌸</span>
+              </div>
+            </div>
+            <div class="about-visual-accent"></div>
+          </div>
+          <div class="about-text">
+            <p>CakeCanvas is an online bakery based in London, specialising in fully customised celebration cakes. Every cake is designed and baked from scratch by our team of skilled artisan designers — using premium ingredients like real butter, Belgian chocolate, and Madagascar vanilla.</p>
+            <p>Whether it's a whimsical birthday cake, an elegant wedding centrepiece, or a corporate showstopper, we treat every order as a unique work of art.</p>
+            <ul class="about-features">
+              <li>
+                <span class="about-feature-icon" aria-hidden="true">✦</span>
+                Bespoke designs for any occasion
+              </li>
+              <li>
+                <span class="about-feature-icon" aria-hidden="true">✦</span>
+                Eggless, gluten-free, vegan &amp; nut-free options
+              </li>
+              <li>
+                <span class="about-feature-icon" aria-hidden="true">✦</span>
+                Complimentary 25-mile delivery from London
+              </li>
+              <li>
+                <span class="about-feature-icon" aria-hidden="true">✦</span>
+                AI chatbot for instant guidance — no waiting
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── ABOUT ── -->
-    <section class="about" aria-labelledby="about-heading">
+    <!-- ── STATS ── -->
+    <section class="stats-bar" aria-label="CakeCanvas by the numbers">
       <div class="container">
-        <div class="about-grid">
-          <div class="about-image" aria-hidden="true" role="img" aria-label="Decorative cake illustration">
-            🎂✨
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">2,400<span class="stat-plus">+</span></span>
+            <span class="stat-label">Cakes Delivered</span>
           </div>
-          <div class="about-text">
-            <span class="section-label">About</span>
-            <h2 id="about-heading">Handcrafted with love,<br>designed for your moment</h2>
-            <p>CakeCanvas is an online bakery based in London, specialising in fully customised celebration cakes. Every cake is designed and baked from scratch by our team of skilled designers and bakers — using premium ingredients like real butter, Belgian chocolate, and Madagascar vanilla.</p>
-            <p>Whether it's a whimsical birthday cake, an elegant wedding centrepiece, or a corporate showstopper, we treat every order as a unique work of art.</p>
-            <ul>
-              <li>Custom designs for any occasion</li>
-              <li>Eggless, gluten-free, vegan &amp; nut-free options</li>
-              <li>Free 25-mile delivery from our London bakery</li>
-              <li>AI chatbot for instant guidance — no waiting</li>
-            </ul>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-number">4.9<span class="stat-star">★</span></span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-number">25<span class="stat-plus">mi</span></span>
+            <span class="stat-label">Delivery Radius</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">On-Time Delivery</span>
           </div>
         </div>
       </div>
@@ -94,32 +180,133 @@
 
     <!-- ── FEATURES ── -->
     <section class="features" id="features" aria-labelledby="features-heading">
+      <div class="divider" aria-hidden="true">
+        <span class="divider-icon">✦</span>
+      </div>
       <div class="container">
-        <div class="features-header">
-          <span class="section-label">How it works</span>
-          <h2 id="features-heading">From inspiration to celebration</h2>
+        <div class="section-header">
+          <span class="section-label">How It Works</span>
+          <h2 id="features-heading">From inspiration to&nbsp;<span class="gold-text">celebration</span></h2>
+          <p class="section-subtitle">Four simple steps to your perfect cake</p>
         </div>
         <div class="features-grid">
           <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">💬</span>
-            <h3>Chat with our AI assistant</h3>
-            <p>Tell us your occasion, share an inspiration photo, and answer a few quick questions. Our chatbot guides you step by step — no forms, no waiting.</p>
+            <div class="feature-card-number" aria-hidden="true">01</div>
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon" aria-hidden="true">💬</span>
+            </div>
+            <h3>Tell us your vision</h3>
+            <p>Chat with our AI assistant. Share your occasion, inspiration photo, and preferences — no forms, no waiting.</p>
           </article>
           <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">📸</span>
-            <h3>Instant photo feedback</h3>
-            <p>Upload a photo and our tool checks the quality instantly — blur, lighting, resolution. If it's not quite right, we'll tell you exactly how to improve it.</p>
+            <div class="feature-card-number" aria-hidden="true">02</div>
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon" aria-hidden="true">📸</span>
+            </div>
+            <h3>Instant photo check</h3>
+            <p>Upload an inspiration photo and our tool instantly checks blur, lighting, and resolution — with tips to improve.</p>
           </article>
           <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">👩‍🍳</span>
-            <h3>Designer reviews your brief</h3>
-            <p>Your requirements, photo, and preferences are compiled into a structured brief. A designer reviews it within 24 hours and sends you a personalised quote.</p>
+            <div class="feature-card-number" aria-hidden="true">03</div>
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon" aria-hidden="true">👩‍🍳</span>
+            </div>
+            <h3>Designer review</h3>
+            <p>Your brief reaches a skilled designer within 24 hours. They'll create a personalised quote and sketch.</p>
           </article>
           <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">🎉</span>
-            <h3>Delivery or collection</h3>
-            <p>We deliver within 25 miles of London, with white-glove setup included. Prefer to collect? Book an appointment at our bakery studio.</p>
+            <div class="feature-card-number" aria-hidden="true">04</div>
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon" aria-hidden="true">🎉</span>
+            </div>
+            <h3>Delivery or pickup</h3>
+            <p>White-glove delivery within 25 miles of London, or collect from our bakery studio by appointment.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY TEASER ── -->
+    <section class="gallery-teaser" aria-label="Gallery preview">
+      <div class="divider" aria-hidden="true">
+        <span class="divider-icon">✦</span>
+      </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Portfolio</span>
+          <h2>Recent <span class="gold-text">creations</span></h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-card gallery-card--tall">
+            <div class="gallery-card-inner" aria-hidden="true">
+              <span class="gallery-emoji">🎂</span>
+              <span class="gallery-emoji gallery-emoji--sm">✨</span>
+            </div>
+            <span class="gallery-label">Wedding</span>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-card-inner" aria-hidden="true">
+              <span class="gallery-emoji">🧁</span>
+            </div>
+            <span class="gallery-label">Cupcakes</span>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-card-inner" aria-hidden="true">
+              <span class="gallery-emoji">🎉</span>
+            </div>
+            <span class="gallery-label">Celebration</span>
+          </div>
+          <div class="gallery-card gallery-card--tall">
+            <div class="gallery-card-inner" aria-hidden="true">
+              <span class="gallery-emoji">💍</span>
+            </div>
+            <span class="gallery-label">Anniversary</span>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-card-inner" aria-hidden="true">
+              <span class="gallery-emoji">🎓</span>
+            </div>
+            <span class="gallery-label">Graduation</span>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-card-inner" aria-hidden="true">
+              <span class="gallery-emoji">🏢</span>
+            </div>
+            <span class="gallery-label">Corporate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIAL ── -->
+    <section class="testimonial" aria-label="Customer testimonial">
+      <div class="container">
+        <div class="testimonial-card">
+          <span class="testimonial-quote" aria-hidden="true">"</span>
+          <blockquote>
+            Absolutely stunning! The cake was even more beautiful than the photo I sent. Every guest asked where we got it. Worth every penny.
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">S</div>
+            <div>
+              <cite>Sarah L.</cite>
+              <span class="testimonial-occasion">Wedding cake, May 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to create something&nbsp;<span class="gold-text">beautiful</span>?</h2>
+          <p>Start a conversation with our AI assistant and take the first step toward your dream cake.</p>
+          <button class="btn-primary btn-primary--gold btn-primary--large" id="footerChatBtn">
+            <span aria-hidden="true">💬</span>
+            <span>Start Your Order</span>
+          </button>
         </div>
       </div>
     </section>
@@ -129,26 +316,59 @@
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
+      <div class="footer-brand">
+        <a href="#" class="logo" aria-label="CakeCanvas home">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="16" width="24" height="12" rx="2" fill="#A1887F"/>
+              <rect x="8" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+              <rect x="14" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+              <rect x="20" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+              <path d="M16 4C16 4 12 10 16 12C20 10 16 4 16 4Z" fill="#F8D7DA"/>
+            </svg>
+          </span>
+          <span class="logo-text">CakeCanvas</span>
+        </a>
+        <p>Handcrafted custom cakes in London. Every order made to order, made for you.</p>
+      </div>
       <div class="footer-grid">
         <div class="footer-col">
-          <h4>CakeCanvas</h4>
-          <p>Handcrafted custom cakes in London. Every order made to order, made for you.</p>
-        </div>
-        <div class="footer-col">
           <h4>Contact</h4>
-          <p>hello@cakecanvas.com<br>+44 20 7946 0958</p>
+          <ul>
+            <li><a href="mailto:hello@cakecanvas.com">hello@cakecanvas.com</a></li>
+            <li><a href="tel:+442079460958">+44 20 7946 0958</a></li>
+            <li>121 Baker St, London W1U 6AG</li>
+          </ul>
         </div>
         <div class="footer-col">
           <h4>Hours</h4>
-          <p>Mon–Fri: 9 AM – 6 PM<br>Sat: 10 AM – 4 PM<br>Sun: Closed</p>
+          <ul>
+            <li>Mon–Fri: 9AM – 6PM</li>
+            <li>Sat: 10AM – 4PM</li>
+            <li>Sun: Closed</li>
+          </ul>
         </div>
         <div class="footer-col">
           <h4>Follow</h4>
-          <p>Instagram: @cakecanvas<br>Pinterest: cakecanvas</p>
+          <ul>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="Pinterest">Pinterest</a></li>
+            <li><a href="#" aria-label="Facebook">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Delivery Policy</a></li>
+            <li><a href="#">Cancellations</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2026 CakeCanvas. All rights reserved. Made with love in London.
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 CakeCanvas. Made with love in London.</p>
       </div>
     </div>
   </footer>
@@ -163,7 +383,15 @@
   <aside id="chatPanel" class="chat-panel" role="dialog" aria-label="CakeCanvas chatbot" aria-hidden="true" aria-modal="true">
     <div class="chat-header">
       <div class="chat-header-left">
-        <div class="chat-avatar" aria-hidden="true">CC</div>
+        <div class="chat-avatar" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+            <rect x="4" y="16" width="24" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+            <rect x="8" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+            <rect x="14" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+            <rect x="20" y="14" width="4" height="4" rx="1" fill="#C9A96E"/>
+            <path d="M16 4C16 4 12 10 16 12C20 10 16 4 16 4Z" fill="rgba(255,255,255,0.3)"/>
+          </svg>
+        </div>
         <div>
           <div class="chat-title">CakeCanvas</div>
           <div class="chat-status" id="chatStatus"><span class="sr-only">Status: </span>Online</div>
@@ -198,7 +426,10 @@
         <label for="chatInput" class="sr-only">Type your message</label>
         <input type="text" id="chatInput" class="chat-input" placeholder="Type your message…" autocomplete="off" enterkeyhint="send" aria-required="false">
         <button id="chatSendBtn" class="chat-send-btn" aria-label="Send message" type="button">
-          <span aria-hidden="true">➤</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
         </button>
       </div>
     </div>

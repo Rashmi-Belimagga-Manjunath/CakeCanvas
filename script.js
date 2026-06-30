@@ -24,6 +24,7 @@
   var themeIcon = document.getElementById('themeIcon');
   var headerChatBtn = document.getElementById('headerChatBtn');
   var heroChatBtn = document.getElementById('heroChatBtn');
+  var footerChatBtn = document.getElementById('footerChatBtn');
 
   var isOpen = false;
   var isProcessing = false;
@@ -597,6 +598,7 @@
 
   headerChatBtn.addEventListener('click', openChat);
   heroChatBtn.addEventListener('click', openChat);
+  footerChatBtn.addEventListener('click', openChat);
 
   themeToggle.addEventListener('click', toggleTheme);
 
