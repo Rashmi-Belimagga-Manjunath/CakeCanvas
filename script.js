@@ -593,11 +593,20 @@
 
   headerChatBtn.addEventListener('click', openChat);
   heroChatBtn.addEventListener('click', openChat);
-  footerChatBtn.addEventListener('click', openChat);
+  if (footerChatBtn) footerChatBtn.addEventListener('click', openChat);
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && isOpen) {
       closeChat();
+    }
+  });
+
+  // ─── Scroll effect for header ────────────────────────────────────────────
+
+  window.addEventListener('scroll', function () {
+    var header = document.querySelector('.site-header');
+    if (header) {
+      header.classList.toggle('scrolled', window.scrollY > 60);
     }
   });
 
