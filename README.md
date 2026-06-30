@@ -4,12 +4,9 @@ A production-quality AI chatbot for CakeCanvas, a fictional online bakery specia
 
 ## Live Demo
 
-Deploy to GitHub Pages:
+👉 **[https://rashmi-belimagga-manjunath.github.io/CakeCanvas/](https://rashmi-belimagga-manjunath.github.io/CakeCanvas/)** — deployed live on GitHub Pages.
 
-1. Push this repository to GitHub
-2. Go to **Settings > Pages**
-3. Select **Deploy from branch** → `main` / `docs` (or set up GitHub Actions)
-4. Your site will be live at `https://<username>.github.io/<repo>`
+*(First load may take a moment — the site is fully static with no build step.)*
 
 ## Features
 
