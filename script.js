@@ -288,7 +288,7 @@
     var dots = document.createElement('div');
     dots.className = 'typing-indicator';
     dots.innerHTML = '<span></span><span></span><span></span>';
-    dots.setAttribute('aria-label', 'CakeCanvas is typing');
+    dots.setAttribute('aria-label', 'Ask Me is typing');
     bubble.appendChild(dots);
     typingEl.appendChild(bubble);
     chatMessages.appendChild(typingEl);
@@ -619,7 +619,7 @@
       // Cache for offline support (if service worker registered)
     }
 
-    console.log('CakeCanvas chatbot ready. Click the chat button to start.');
+    console.log('Ask Me chatbot ready. Click the chat button to start.');
   }
 
   init();

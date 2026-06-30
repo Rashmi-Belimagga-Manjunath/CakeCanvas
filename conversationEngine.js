@@ -189,7 +189,7 @@ const ConversationEngine = (function () {
   function getGreeting() {
     return {
       type: 'greeting',
-      message: 'Welcome to CakeCanvas! ✨\n\nI\'m your cake consultant. I\'ll help you design a custom celebration cake — from flavour to delivery. Let\'s start with the most important question: what\'s the occasion?',
+      message: 'Welcome! I\'m Ask Me, your cake consultant. ✨\n\nI\'ll help you design a custom celebration cake — from flavour to delivery. Let\'s start with the most important question: what\'s the occasion?',
       phase: 'greeting',
       options: getOccasionOptions()
     };

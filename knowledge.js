@@ -1884,12 +1884,12 @@ knowledge.fallbacks = [
   },
   {
     threshold: "empty_input",
-    message: "Hi there! I'm the CakeCanvas assistant. Tell me what you're looking for — I can help with ordering a cake, answering questions about flavours, pricing, delivery, or anything cake-related!",
+    message: "Hi there! I'm Ask Me. Tell me what you're looking for — I can help with ordering a cake, answering questions about flavours, pricing, delivery, or anything cake-related!",
     action: "prompt_start"
   },
   {
     threshold: "greeting",
-    message: "Hello! Welcome to CakeCanvas. Ready to plan a cake? Tell me about your occasion!",
+    message: "Hello! Welcome to CakeCanvas — I'm Ask Me. Ready to plan a cake? Tell me about your occasion!",
     action: "prompt_occasion"
   },
   {
@@ -1899,7 +1899,7 @@ knowledge.fallbacks = [
   },
   {
     threshold: "goodbye",
-    message: "Thanks for chatting with CakeCanvas! A designer will be in touch soon. Have a wonderful celebration! 🎂",
+    message: "Thanks for chatting with Ask Me! A designer will be in touch soon. Have a wonderful celebration! 🎂",
     action: "end"
   }
 ];
