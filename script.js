@@ -25,6 +25,8 @@
   var headerChatBtn = document.getElementById('headerChatBtn');
   var heroChatBtn = document.getElementById('heroChatBtn');
   var footerChatBtn = document.getElementById('footerChatBtn');
+  var launcherLabel = document.getElementById('launcherLabel');
+  var launcherBadge = document.getElementById('launcherBadge');
 
   var isOpen = false;
   var isProcessing = false;
@@ -500,7 +502,13 @@
 
   // ─── Chat Open / Close ───────────────────────────────────────────────────
 
+  function hideLauncherLabel() {
+    if (launcherLabel) launcherLabel.classList.add('hidden');
+    if (launcherBadge) launcherBadge.classList.add('hidden');
+  }
+
   function openChat() {
+    hideLauncherLabel();
     isOpen = true;
     chatPanel.classList.add('open');
     chatPanel.setAttribute('aria-hidden', 'false');
@@ -581,7 +589,17 @@
 
   // ─── Event Binding ───────────────────────────────────────────────────────
 
-  chatLauncher.addEventListener('click', toggleChat);
+  if (launcherLabel) {
+    launcherLabel.addEventListener('click', function () {
+      hideLauncherLabel();
+      openChat();
+    });
+  }
+
+  chatLauncher.addEventListener('click', function () {
+    hideLauncherLabel();
+    toggleChat();
+  });
   chatCloseBtn.addEventListener('click', closeChat);
   chatClearBtn.addEventListener('click', resetChat);
 
@@ -589,6 +607,7 @@
     handleUserInput(chatInput.value);
   });
 
+  chatInput.addEventListener('focus', hideLauncherLabel);
   chatInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();

@@ -244,10 +244,14 @@
   </footer>
 
   <!-- ═══════════════ CHATBOT ═══════════════ -->
-  <button id="chatLauncher" class="chat-launcher" aria-label="Open chat" aria-expanded="false" type="button">
-    <span class="chat-icon" aria-hidden="true">💬</span>
-    <span class="close-icon" aria-hidden="true">✕</span>
-  </button>
+  <div class="chat-launcher-wrap">
+    <div class="launcher-label" id="launcherLabel">Chat with <strong>Ask Me</strong> 💬</div>
+    <button id="chatLauncher" class="chat-launcher" aria-label="Open chat" aria-expanded="false" type="button">
+      <span class="chat-icon" aria-hidden="true">💬</span>
+      <span class="close-icon" aria-hidden="true">✕</span>
+      <span class="launcher-badge" id="launcherBadge" aria-hidden="true">👋</span>
+    </button>
+  </div>
 
   <aside id="chatPanel" class="chat-panel" role="dialog" aria-label="Ask Me chatbot" aria-hidden="true" aria-modal="true">
     <div class="chat-header">
